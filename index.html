@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Budget Buddy - Finance Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Budget Buddy</h1>
+    <button id="modeToggle" onclick="toggleMode()">🌙 Dark Mode</button>
+
+    <div class="balance">
+      <h2>Balance: ₹<span id="balance">0</span></h2>
+    </div>
+
+    <div class="form">
+      <input type="text" id="desc" placeholder="Description" />
+      <input type="number" id="amount" placeholder="Amount (use - for expense)" />
+      <button onclick="addTransaction()">Add</button>
+    </div>
+
+    <div class="summary">
+      <div>Income: ₹<span id="income">0</span></div>
+      <div>Expense: ₹<span id="expense">0</span></div>
+    </div>
+
+    <h3>Spending Overview</h3>
+    <canvas id="financeChart" width="100" height="100"></canvas>
+
+    <h3>Transactions</h3>
+    <ul id="transactions"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
