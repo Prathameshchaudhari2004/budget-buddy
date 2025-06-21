@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Buddy - Personal Finance Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="banner">
+    <h2>Welcome to Budget Buddy 👋</h2>
+    <p>Track your finances the smart way!</p>
+  </div>
+
+  <div class="container">
+    <h1>💰 Budget Buddy</h1>
+    <button id="modeToggle" onclick="toggleMode()">🌙 Dark Mode</button>
+
+    <div class="balance">
+      <h2>Balance: ₹<span id="balance">0</span></h2>
+    </div>
+
+    <div class="form">
+      <input type="text" id="desc" placeholder="Description" />
+      <input type="number" id="amount" placeholder="Amount (use - for expense)" />
+      <select id="category">
+        <option value="" disabled selected>Choose Category</option>
+        <option value="Salary">💼 Salary</option>
+        <option value="Food">🍔 Food</option>
+        <option value="Rent">🏠 Rent</option>
+        <option value="Travel">✈️ Travel</option>
+        <option value="Other">📦 Other</option>
+      </select>
+      <button onclick="addTransaction()">Add</button>
+    </div>
+
+    <div class="summary">
+      <div>Income: ₹<span id="income">0</span></div>
+      <div>Expense: ₹<span id="expense">0</span></div>
+    </div>
+
+    <h3>Spending Overview</h3>
+    <canvas id="financeChart" width="300" height="300"></canvas>
+
+    <div class="controls">
+      <button onclick="exportCSV()">📤 Export as CSV</button>
+      <select onchange="changeTheme(this.value)">
+        <option value="#4caf50">💚 Green</option>
+        <option value="#007bff">💙 Blue</option>
+        <option value="#9c27b0">💜 Purple</option>
+      </select>
+    </div>
+
+    <h3>Transactions</h3>
+    <input type="text" id="search" placeholder="🔎 Search transactions..." oninput="searchTransactions()">
+    <h4 id="txCount">Transactions: 0</h4>
+    <ul id="transactions"></ul>
+  </div>
+
+  <div id="toast" class="toast">Transaction added ✅</div>
+  <footer>
+    <p>© 2025 Prathamesh Chaudhari | Budget Buddy</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
